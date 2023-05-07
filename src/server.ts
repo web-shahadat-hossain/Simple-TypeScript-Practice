@@ -168,5 +168,35 @@ const friends: IPerson[] = [
   },
 ];
 
-const result8 = findFriend(friends, "masum@gmail.com");
-console.log(result8);
+const result7 = findFriend(friends, "masum@gmail.com");
+// console.log(result7);
+
+// ****8
+
+const findMinMax = (...number: number[]) => {
+  const minimum = Math.min(...number);
+  const maximum = Math.max(...number);
+
+  return [minimum, maximum];
+};
+
+const arrayOfNumbers: number[] = [11, 5, 74, 20, 30, 21, 24154, 0, 3, -5];
+const result8 = findMinMax(...arrayOfNumbers);
+// console.log(result8);
+
+// ****9
+
+type colorType = "red" | "green" | "blue";
+
+const FinduppercaseLowercase = (
+  color: colorType,
+  booleanType?: boolean
+): void => {
+  if (booleanType) {
+    console.log(color.toLocaleUpperCase());
+  } else {
+    console.log(color.toLocaleLowerCase());
+  }
+};
+
+FinduppercaseLowercase("red", true);
