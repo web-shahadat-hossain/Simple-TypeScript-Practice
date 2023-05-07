@@ -130,4 +130,43 @@ const findOddNumber = (oddNumber: number[]): number[] => {
 const oddAndOddNumberArray: number[] = [10, 9, 4, 3, 6];
 const result6 = findOddNumber(oddAndOddNumberArray);
 
-console.log(result6);
+// console.log(result6);
+
+// ****7
+// Create an interface called Person that includes properties for name (string), age (number), and email (string). Then create an array of Person objects and write a function that takes the array and a string email as parameters, and returns the Person object that matches the email or null if no match is found.
+interface IPerson {
+  name: string;
+  age: number;
+  email: string;
+}
+
+const findFriend = <T extends IPerson>(friend: T[], email: string) => {
+  for (let bestFriend of friend) {
+    // console.log(bestFriend.email);
+    if (bestFriend.email === email) {
+      return bestFriend;
+    }
+  }
+  return "no match is found.";
+};
+
+const friends: IPerson[] = [
+  {
+    name: "Md Shahadat Hossain",
+    age: 18,
+    email: "shahadat@gmail.com",
+  },
+  {
+    name: "Md Masum Billa",
+    age: 18,
+    email: "masum@gmail.com",
+  },
+  {
+    name: "Md Abu Taher",
+    age: 18,
+    email: "taher@gmail.com",
+  },
+];
+
+const result8 = findFriend(friends, "masum@gmail.com");
+console.log(result8);
