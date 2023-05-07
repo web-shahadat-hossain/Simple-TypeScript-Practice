@@ -1,5 +1,6 @@
 // TypeScript tuple
 
+// ****1
 const userInfo: [number, string, string, boolean, string] = [
   101,
   "Ema",
@@ -10,6 +11,7 @@ const userInfo: [number, string, string, boolean, string] = [
 
 // console.log(userInfo);
 
+// ****2
 // Common Elements in array
 const getCommonElements = (
   numberArray1: number[],
@@ -29,6 +31,7 @@ const getCommonElements = (
 
 // console.log(getCommonElements([1, 4], [1, 5]));
 
+// ****3
 // You have an interface for Product, containing the product's id, name, price, and category. You want to filter an array of Products based on a specific criterion and value.
 
 interface IProduct {
@@ -76,6 +79,8 @@ const products: IProduct[] = [
 const result = product(products, "price", 23);
 // console.log(result);
 
+// ****4
+
 // Suppose you have an array of tuples, where each tuple represents a product and contains the product name, price, and quantity. Write a TypeScript function that calculates the total cost of all the products in the array, using a generic type for the tuple and a type alias for the array.
 
 type tupleArrayOfProduct = [string, number, number];
@@ -86,7 +91,6 @@ const calculatesTotalCost = <T extends tupleArrayOfProduct>(products: T[]) => {
   let totalCost = 0;
   for (let product of products) {
     const [, price, quantity] = product;
-    console.log(quantity);
     totalCost += price * quantity;
   }
   return totalCost;
@@ -99,3 +103,31 @@ const myProducts: myProductsType = [
 
 const result4 = calculatesTotalCost(myProducts);
 // console.log(result4);
+
+// ****5
+// Suppose you have an array of numbers in TypeScript, and you want to find the sum of all the even numbers in the array. How would you approach this problem and write code to solve it?
+
+const evenNumberSum = (numberArray: number[]) => {
+  let eventTotal = 0;
+  for (let i = 0; i < numberArray.length; i++) {
+    if (numberArray[i] % 2 === 0) {
+      eventTotal += numberArray[i];
+    }
+  }
+  return eventTotal;
+};
+
+const evenAndOddNumberArray: number[] = [10, 9, 4, 3, 6];
+const result5 = evenNumberSum(evenAndOddNumberArray);
+
+// ****6
+// Suppose you have an array of numbers in TypeScript, and you want to find the sum of all the odd numbers in the array. How would you approach this problem and write code to solve it?
+
+const findOddNumber = (oddNumber: number[]): number[] => {
+  return oddNumber.filter((odd) => odd % 2 !== 0);
+};
+
+const oddAndOddNumberArray: number[] = [10, 9, 4, 3, 6];
+const result6 = findOddNumber(oddAndOddNumberArray);
+
+console.log(result6);
