@@ -74,4 +74,28 @@ const products: IProduct[] = [
 ];
 
 const result = product(products, "price", 23);
-console.log(result);
+// console.log(result);
+
+// Suppose you have an array of tuples, where each tuple represents a product and contains the product name, price, and quantity. Write a TypeScript function that calculates the total cost of all the products in the array, using a generic type for the tuple and a type alias for the array.
+
+type tupleArrayOfProduct = [string, number, number];
+
+type myProductsType = tupleArrayOfProduct[];
+
+const calculatesTotalCost = <T extends tupleArrayOfProduct>(products: T[]) => {
+  let totalCost = 0;
+  for (let product of products) {
+    const [, price, quantity] = product;
+    console.log(quantity);
+    totalCost += price * quantity;
+  }
+  return totalCost;
+};
+
+const myProducts: myProductsType = [
+  ["t-shirt", 300, 2],
+  ["Punjabi", 500, 2],
+];
+
+const result4 = calculatesTotalCost(myProducts);
+// console.log(result4);
